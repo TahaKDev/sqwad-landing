@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import AgentCard from '../../components/ui/AgentCard.astro';
+
+const placeholder = '/images/agent-placeholder.png';
+
+const agents = [
+  {
+    name: 'Marco Astro',
+    slug: 'marco-astro',
+    tagline: 'Le meilleur JavaScript, c\'est celui qu\'on n\'envoie pas au client.',
+    specialty: 'Astro & Sites Statiques',
+    image: placeholder,
+    accentColor: '#f97316',
+  },
+  {
+    name: 'Marco Tailwind',
+    slug: 'marco-tailwind',
+    tagline: 'Pixel-perfect, responsive, et maintenable. Toujours.',
+    specialty: 'CSS & Tailwind',
+    image: placeholder,
+    accentColor: '#ef4444',
+  },
+  {
+    name: 'Marco Angular',
+    slug: 'marco-angular',
+    tagline: 'Enterprise-ready applications avec architecture solide.',
+    specialty: 'Angular',
+    image: placeholder,
+    accentColor: '#dc2626',
+  },
+  {
+    name: 'Nova AI',
+    slug: 'nova-ai',
+    tagline: 'Intelligence artificielle et machine learning intégrés.',
+    specialty: 'IA & ML',
+    image: placeholder,
+    accentColor: '#8b5cf6',
+  },
+  {
+    name: 'Bruno Backend',
+    slug: 'bruno-backend',
+    tagline: 'APIs robustes, scalables et sécurisées.',
+    specialty: 'Backend & APIs',
+    image: placeholder,
+    accentColor: '#059669',
+  },
+  {
+    name: 'Kira DevOps',
+    slug: 'kira-devops',
+    tagline: 'CI/CD, infrastructure as code, et déploiement continu.',
+    specialty: 'DevOps & CI/CD',
+    image: placeholder,
+    accentColor: '#0891b2',
+  },
+  {
+    name: 'Shadow Security',
+    slug: 'shadow-security',
+    tagline: 'Sécurité applicative et protection des données.',
+    specialty: 'Sécurité',
+    image: placeholder,
+    accentColor: '#374151',
+  },
+  {
+    name: 'Flash Perf',
+    slug: 'flash-perf',
+    tagline: 'Optimisation et performance à tous les niveaux.',
+    specialty: 'Performance',
+    image: placeholder,
+    accentColor: '#eab308',
+  },
+];
+---
+
+<BaseLayout title="Agents | Sqwad" description="Découvrez les agents IA spécialisés de Sqwad">
+  <Navbar />
+
+  <main class="pt-24 pb-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <div class="text-center mb-16">
+        <h1
+          class="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl"
+          style="animation: slideUp 0.5s ease-out"
+        >
+          Rencontrez la Sqwad
+        </h1>
+        <p
+          class="mt-4 text-lg text-neutral-600 max-w-2xl mx-auto"
+          style="animation: slideUp 0.5s ease-out 0.1s both"
+        >
+          Une équipe d'agents IA ultra-spécialisés, chacun expert dans son domaine.
+        </p>
+      </div>
+
+      {/* Agents Grid */}
+      <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        style="animation: fadeIn 0.8s ease-out 0.2s both"
+      >
+        {agents.map((agent) => (
+          <AgentCard
+            name={agent.name}
+            slug={agent.slug}
+            tagline={agent.tagline}
+            specialty={agent.specialty}
+            image={agent.image}
+            accentColor={agent.accentColor}
+          />
+        ))}
+      </div>
+
+      {/* Coming soon note */}
+      <p class="mt-12 text-center text-sm text-neutral-500">
+        Plus d'agents arrivent bientôt...
+      </p>
+    </div>
+  </main>
+
+  {/* Footer */}
+  <footer class="border-t border-border bg-neutral-50 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <div class="flex items-center gap-2 text-neutral-600">
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="32" height="32" rx="8" fill="currentColor" />
+            <path
+              d="M8 16C8 11.5817 11.5817 8 16 8V8C20.4183 8 24 11.5817 24 16V24H16C11.5817 24 8 20.4183 8 16V16Z"
+              fill="white"
+            />
+          </svg>
+          <span class="font-semibold">Sqwad</span>
+        </div>
+        <p class="text-sm text-neutral-500">
+          Open source &bull; MIT License
+        </p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

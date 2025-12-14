@@ -1,0 +1,354 @@
+---
+import { Image } from 'astro:assets';
+import AgentLayout from '../../layouts/AgentLayout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import CodeBlock from '../../components/ui/CodeBlock.astro';
+import marcoImage from '../../assets/images/marco-bg.png';
+
+const accentColor = '#f97316';
+
+const specialties = [
+  'Astro Framework',
+  'Sites Statiques',
+  'Content Collections',
+  'Islands Architecture',
+  'Tailwind CSS',
+  'SEO Technique',
+  'Performance Web',
+  'Image Optimization',
+];
+
+const skills = [
+  {
+    name: 'astro-conventions',
+    description: 'Architecture de projet, composants, routing, Content Collections',
+  },
+  {
+    name: 'tailwind-patterns',
+    description: 'Configuration avancée, design system, composants UI',
+  },
+  {
+    name: 'clean-code',
+    description: 'Principes Uncle Bob, naming, fonctions, tests',
+  },
+];
+
+const useCases = [
+  { title: 'Sites vitrine', description: 'Landing pages, sites corporate, portfolios' },
+  { title: 'Documentation', description: 'Sites de docs techniques, wikis, guides' },
+  { title: 'Blogs', description: 'Blogs statiques avec MDX, Content Collections' },
+  { title: 'Marketing', description: 'Pages produit, landing pages campagne' },
+  { title: 'Open Source', description: 'Sites de projets GitHub, changelogs' },
+];
+
+const codeExamples = [
+  {
+    title: 'Créer un projet Astro',
+    code: `# Dans Claude Code
+@marco-astro Initialise un nouveau projet Astro pour un site de documentation.
+Stack : Astro + Tailwind + MDX. Structure clean avec Content Collections pour les docs.`,
+  },
+  {
+    title: 'Créer une page',
+    code: `@marco-astro Crée une page "À propos" avec :
+- Hero section avec titre et description
+- Section équipe avec cards
+- Section timeline histoire de l'entreprise
+- CTA final`,
+  },
+  {
+    title: 'Optimiser les performances',
+    code: `@marco-astro Audit de performance sur ma page d'accueil.
+Identifie les problèmes et optimise pour atteindre Lighthouse 100.
+Focus : images, JS inutile, fonts, critical CSS.`,
+  },
+  {
+    title: 'Content Collections',
+    code: `@marco-astro Crée une Content Collection "blog" avec :
+- Schema : title, excerpt, author, publishedAt, cover image, tags
+- Page liste avec pagination
+- Page article avec layout MDX
+- Génération sitemap automatique`,
+  },
+  {
+    title: 'Composant réutilisable',
+    code: `@marco-astro Crée un composant Card réutilisable avec :
+- Props : title, description, image, href, variant (default/featured)
+- Hover effects
+- Responsive
+- Accessible (focus states)`,
+  },
+];
+
+const does = [
+  'TypeScript strict pour les props',
+  'Composants < 100 lignes',
+  'Images via astro:assets',
+  'client:visible par défaut (pas client:load)',
+  'Meta tags SEO complets',
+  'Mobile-first responsive',
+];
+
+const doesNot = [
+  'Inline styles',
+  'Composants > 150 lignes',
+  'Props any ou non typées',
+  'JavaScript côté client sans justification',
+  'Over-engineering',
+  'Dépendances npm inutiles',
+];
+---
+
+<AgentLayout
+  title="Marco Astro | Sqwad"
+  description="Marco Astro - Expert Astro et sites statiques ultra-rapides"
+  name="Marco Astro"
+  tagline="Le meilleur JavaScript, c'est celui qu'on n'envoie pas au client."
+  accentColor={accentColor}
+>
+  {/* Hero Section */}
+  <section class="relative overflow-hidden bg-gradient-to-b from-orange-50 to-white pt-12 pb-16 sm:pt-16 sm:pb-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center text-center">
+        {/* Info */}
+        <div style="animation: slideUp 0.5s ease-out">
+          <h1 class="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+            Marco Astro
+          </h1>
+          <p class="mt-4 text-xl text-neutral-600 max-w-2xl mx-auto">
+            Le meilleur JavaScript, c'est celui qu'on n'envoie pas au client.
+          </p>
+        </div>
+
+        {/* Marco Image - Animated */}
+        <div class="mt-12" style="animation: slideUp 0.5s ease-out 0.2s both">
+          <div style="animation: float 3s ease-in-out infinite">
+            <Image
+              src={marcoImage}
+              alt="Marco Astro, le raton laveur orange expert Astro"
+              width={280}
+              height={280}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Who is Marco Section */}
+  <section class="pt-8 pb-16 sm:pt-12 sm:pb-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Qui est Marco Astro ?
+      </h2>
+      <div class="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+        <p>
+          Marco Astro est un <strong class="text-neutral-900">Raton Laveur orange</strong> qui tient une fusée.
+          C'est l'expert Astro de la Sqwad, obsédé par la performance et allergique à l'over-engineering.
+        </p>
+        <p>
+          Quand Marco build un site, <strong class="text-neutral-900">chaque kilooctet compte</strong>.
+          Zéro JavaScript inutile. Contenu first. Lighthouse 100 comme objectif minimum.
+        </p>
+        <p>
+          Il fait partie de la famille Marco — une lignée d'agents spécialisés dans les frameworks frontend.
+          Marco Astro est l'évolution dédiée aux sites statiques ultra-rapides.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Specialties Section */}
+  <section class="border-t border-border py-16 sm:py-20 bg-neutral-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Spécialités
+      </h2>
+      <div class="mt-8 flex flex-wrap gap-3">
+        {specialties.map((specialty) => (
+          <Badge variant="default" size="md">{specialty}</Badge>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Skills Section */}
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Skills intégrés
+      </h2>
+      <div class="mt-8 space-y-4">
+        {skills.map((skill) => (
+          <div class="flex items-start gap-4 rounded-xl border border-border bg-surface p-4">
+            <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-neutral-900 font-mono text-sm">{skill.name}</h3>
+              <p class="mt-1 text-sm text-neutral-600">{skill.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Use Cases Section */}
+  <section class="border-t border-border py-16 sm:py-20 bg-neutral-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Cas d'utilisation
+      </h2>
+      <p class="mt-2 text-neutral-600">Quand invoquer Marco Astro :</p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {useCases.map((useCase) => (
+          <div class="rounded-xl border border-border bg-surface p-4">
+            <h3 class="font-semibold text-neutral-900">{useCase.title}</h3>
+            <p class="mt-1 text-sm text-neutral-600">{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Code Examples Section */}
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Exemples d'utilisation
+      </h2>
+      <div class="mt-10">
+        {codeExamples.map((example, index) => (
+          <div class={index > 0 ? 'mt-16' : ''}>
+            <h3 class="mb-4 font-semibold text-neutral-700">
+              Exemple {index + 1} — {example.title}
+            </h3>
+            <CodeBlock code={example.code} lang="bash" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Does / Doesn't Section */}
+  <section class="border-t border-border py-16 sm:py-20 bg-neutral-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Ce que Marco fait / ne fait pas
+      </h2>
+      <div class="mt-8 grid gap-8 sm:grid-cols-2">
+        {/* Does */}
+        <div>
+          <h3 class="flex items-center gap-2 font-semibold text-accent-600">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Marco fait TOUJOURS
+          </h3>
+          <ul class="mt-4 space-y-2">
+            {does.map((item) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Doesn't */}
+        <div>
+          <h3 class="flex items-center gap-2 font-semibold text-red-600">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Marco ne fait JAMAIS
+          </h3>
+          <ul class="mt-4 space-y-2">
+            {doesNot.map((item) => (
+              <li class="flex items-start gap-2 text-sm text-neutral-600">
+                <svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Configuration Section */}
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Configuration
+      </h2>
+      <p class="mt-2 text-neutral-600">Marco utilise ces outils MCP :</p>
+      <div class="mt-6">
+        <CodeBlock
+          code={`tools:
+  - mcp__context7__resolve-library-id
+  - mcp__context7__get-library-docs`}
+          lang="yaml"
+        />
+      </div>
+      <p class="mt-4 text-sm text-neutral-500">
+        Pour toujours avoir la documentation Astro et Tailwind à jour.
+      </p>
+    </div>
+  </section>
+
+  {/* Philosophy Section */}
+  <section class="border-t border-border py-16 sm:py-20 bg-gradient-to-b from-orange-50 to-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Philosophie
+      </h2>
+      <blockquote class="mt-8 border-l-4 border-orange-400 pl-6 text-lg italic text-neutral-700">
+        "Ship less JavaScript. Content is king. Static by default, dynamic when necessary.
+        Every byte matters. Simplicity scales better than complexity."
+      </blockquote>
+      <div class="mt-8 space-y-4 text-neutral-600 leading-relaxed">
+        <p>
+          Marco croit que la meilleure expérience utilisateur vient de la <strong class="text-neutral-900">vitesse</strong>.
+          Un site qui charge en 500ms convertit mieux qu'un site bourré de features qui charge en 3 secondes.
+        </p>
+        <p>
+          Son approche : commencer simple, ajouter de la complexité seulement quand c'est justifié.
+          <strong class="text-neutral-900">YAGNI</strong> (You Ain't Gonna Need It) est son mantra.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Prêt à builder avec Marco ?
+      </h2>
+      <p class="mt-4 text-neutral-600">
+        Ajoutez Marco Astro à votre projet et commencez à créer des sites ultra-rapides.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="https://github.com"
+          class="inline-flex items-center justify-center rounded-lg bg-neutral-900 px-6 py-3 text-base font-medium text-white shadow-button transition-all hover:bg-neutral-800 focus:ring-2 focus:ring-neutral-500/50 focus:outline-none active:scale-[0.98]"
+        >
+          Voir sur GitHub
+        </a>
+        <a
+          href="/agents"
+          class="inline-flex items-center justify-center rounded-lg border border-neutral-300 bg-white px-6 py-3 text-base font-medium text-neutral-700 shadow-button transition-all hover:bg-neutral-50 focus:ring-2 focus:ring-neutral-500/20 focus:outline-none active:scale-[0.98]"
+        >
+          Voir les autres agents
+        </a>
+      </div>
+    </div>
+  </section>
+</AgentLayout>

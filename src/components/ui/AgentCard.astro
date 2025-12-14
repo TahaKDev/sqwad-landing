@@ -1,0 +1,100 @@
+---
+import Badge from './Badge.astro';
+
+interface Props {
+  name: string;
+  slug: string;
+  tagline: string;
+  specialty: string;
+  image: string;
+  video?: string;
+  accentColor?: string;
+  class?: string;
+}
+
+const {
+  name,
+  slug,
+  tagline,
+  specialty,
+  image,
+  video,
+  accentColor = '#64748b',
+  class: className
+} = Astro.props;
+---
+
+<a
+  href={`/agents/${slug}`}
+  class:list={[
+    'group block rounded-2xl border border-border bg-surface p-6',
+    'transition-all duration-300',
+    'hover:shadow-elevated hover:-translate-y-1',
+    'focus:outline-none focus:ring-2 focus:ring-neutral-500/20',
+    className,
+  ]}
+>
+  {/* Agent Image/Video */}
+  <div class="relative mb-4 flex justify-center">
+    <div
+      class="relative h-32 w-32 rounded-2xl overflow-hidden bg-neutral-100 transition-transform duration-300 group-hover:scale-105"
+    >
+      {video ? (
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={image}
+          class="h-full w-full object-cover"
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          src={image}
+          alt={name}
+          width={128}
+          height={128}
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      )}
+      {/* Subtle glow on hover */}
+      <div
+        class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
+        style={`background: radial-gradient(circle at center, ${accentColor}, transparent 70%);`}
+      />
+    </div>
+  </div>
+
+  {/* Agent Info */}
+  <div class="text-center">
+    <h3 class="text-lg font-semibold text-neutral-900 group-hover:text-neutral-700 transition-colors">
+      {name}
+    </h3>
+    <p class="mt-1 text-sm text-neutral-600 line-clamp-2">
+      {tagline}
+    </p>
+    <div class="mt-3 flex justify-center">
+      <Badge variant="default" size="sm">
+        {specialty}
+      </Badge>
+    </div>
+  </div>
+
+  {/* Arrow indicator */}
+  <div class="mt-4 flex justify-center">
+    <span class="inline-flex items-center gap-1 text-sm font-medium text-neutral-500 transition-colors group-hover:text-neutral-700">
+      Voir le profil
+      <svg
+        class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </span>
+  </div>
+</a>
