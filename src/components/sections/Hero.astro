@@ -1,0 +1,207 @@
+---
+import { Image } from 'astro:assets';
+import marcoImage from '../../assets/images/marco-bg.png';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const features = [
+  'Clean Code by default',
+  'Tailwind & Astro ready',
+  'Documentation intégrée',
+  '100% Open Source',
+];
+---
+
+<section
+  class:list={[
+    'relative',
+    className,
+  ]}
+>
+  <!-- Hero background that stops mid-way through VS Code window -->
+  <div class="absolute inset-x-0 top-0 bottom-32 sm:bottom-40 lg:bottom-48 bg-primary"></div>
+
+  <div class="relative pt-24 pb-8 sm:pt-32 sm:pb-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Hero Content -->
+      <div class="relative text-center">
+      <!-- Title -->
+      <h1
+        class="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
+        style="animation: slideUp 0.5s ease-out"
+      >
+        Des agents IA qui codent
+        <span class="text-neutral-900">comme des seniors</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p
+        class="mx-auto mt-6 max-w-2xl text-lg text-neutral-700 sm:text-xl"
+        style="animation: slideUp 0.5s ease-out 0.1s both"
+      >
+        Sqwad est une collection open source d'agents Claude Code ultra-spécialisés. Chaque agent
+        est un expert dans son domaine.
+      </p>
+
+      <!-- Features Checklist -->
+      <div
+        class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
+        style="animation: slideUp 0.5s ease-out 0.2s both"
+      >
+        {
+          features.map((feature) => (
+            <div class="flex items-center gap-2">
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-accent-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span class="text-sm font-medium text-neutral-700">{feature}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- CTA Buttons -->
+      <div
+        class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        style="animation: slideUp 0.5s ease-out 0.3s both"
+      >
+        <a
+          href="#demo"
+          class="inline-flex items-center justify-center rounded-lg bg-neutral-900 px-6 py-3 text-base font-medium text-white shadow-button transition-all hover:bg-neutral-800 focus:ring-2 focus:ring-neutral-500/50 focus:outline-none active:scale-[0.98]"
+        >
+          Voir les agents
+        </a>
+        <a
+          href="#documentation"
+          class="inline-flex items-center justify-center rounded-lg border border-neutral-900 bg-white px-6 py-3 text-base font-medium text-neutral-900 shadow-button transition-all hover:bg-neutral-50 focus:ring-2 focus:ring-neutral-500/20 focus:outline-none active:scale-[0.98]"
+        >
+          Documentation GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div
+      class="relative mt-16 sm:mt-20"
+      style="animation: fadeIn 0.8s ease-out 0.4s both"
+    >
+      <!-- Marco for mobile (above the VS Code window) -->
+      <div class="mb-6 flex justify-center lg:hidden">
+        <div style="animation: float 3s ease-in-out infinite">
+          <Image
+            src={marcoImage}
+            alt="Marco, la mascotte Sqwad"
+            width={120}
+            height={120}
+            class="drop-shadow-xl"
+          />
+        </div>
+      </div>
+
+      <!-- Marco Mascot for desktop (top left corner of VS Code window) -->
+      <div class="absolute -left-4 -top-16 z-10 hidden lg:block lg:-left-8 xl:-left-16">
+        <div
+          class="relative"
+          style="animation: float 3s ease-in-out infinite"
+        >
+          <Image
+            src={marcoImage}
+            alt="Marco, la mascotte Sqwad"
+            width={180}
+            height={180}
+            class="drop-shadow-xl transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      </div>
+
+      <!-- VS Code Style Window -->
+      <div class="relative mx-auto max-w-5xl">
+        <!-- Card container with shadow -->
+        <div class="rounded-xl border border-border bg-surface shadow-elevated overflow-hidden">
+          <!-- Window header -->
+          <div class="flex items-center gap-2 border-b border-border bg-neutral-50 px-4 py-3">
+            <div class="flex gap-1.5">
+              <div class="h-3 w-3 rounded-full bg-red-400"></div>
+              <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
+              <div class="h-3 w-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="flex-1 text-center">
+              <span class="text-sm text-neutral-500 font-mono">sqwad/.claude</span>
+            </div>
+          </div>
+
+          <!-- VS Code content -->
+          <div class="flex min-h-80">
+            <!-- Sidebar Explorer (hidden on mobile) -->
+            <div class="hidden sm:block w-48 flex-shrink-0 border-r border-border bg-neutral-50/50 p-3">
+              <div class="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3 px-2">Explorer</div>
+              <div class="space-y-1">
+                <!-- .claude folder (open) -->
+                <div class="flex items-center gap-2 px-2 py-1 rounded bg-neutral-100">
+                  <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+                  </svg>
+                  <span class="text-sm font-medium text-neutral-800">.claude</span>
+                </div>
+                <!-- agents subfolder -->
+                <div class="flex items-center gap-2 px-2 py-1 ml-4 rounded hover:bg-neutral-100">
+                  <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+                  </svg>
+                  <span class="text-sm text-neutral-700">agents</span>
+                </div>
+                <!-- skills subfolder -->
+                <div class="flex items-center gap-2 px-2 py-1 ml-4 rounded hover:bg-neutral-100">
+                  <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+                  </svg>
+                  <span class="text-sm text-neutral-700">skills</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main: File tree -->
+            <div class="flex-1 p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+              <div class="file-tree text-neutral-600">
+                <div><span class="text-amber-500">.claude/</span></div>
+                <div>├── <span class="text-amber-500">agents/</span></div>
+                <div>│   ├── <span class="text-blue-500">marco-astro.md</span></div>
+                <div>│   ├── <span class="text-blue-500">marco-tailwind.md</span></div>
+                <div>│   ├── <span class="text-blue-500">marco-angular.md</span></div>
+                <div>│   ├── <span class="text-blue-500">nova-ai.md</span></div>
+                <div>│   ├── <span class="text-blue-500">bruno-backend.md</span></div>
+                <div>│   ├── <span class="text-blue-500">kira-devops.md</span></div>
+                <div>│   ├── <span class="text-blue-500">shadow-security.md</span></div>
+                <div>│   └── <span class="text-blue-500">flash-perf.md</span></div>
+                <div>└── <span class="text-amber-500">skills/</span></div>
+                <div>    ├── <span class="text-amber-500">clean-code/</span></div>
+                <div>    │   └── <span class="text-green-500">SKILL.md</span></div>
+                <div>    ├── <span class="text-amber-500">astro-conventions/</span></div>
+                <div>    │   └── <span class="text-green-500">SKILL.md</span></div>
+                <div>    ├── <span class="text-amber-500">tailwind-patterns/</span></div>
+                <div>    │   └── <span class="text-green-500">SKILL.md</span></div>
+                <div>    └── <span class="text-amber-500">css-mastery/</span></div>
+                <div>        └── <span class="text-green-500">SKILL.md</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
