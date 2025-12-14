@@ -1,0 +1,109 @@
+{
+  "name": "Marco Astro",
+  "slug": "marco-astro",
+  "tagline": "Le meilleur JavaScript, c'est celui qu'on n'envoie pas au client.",
+  "description": "Expert Astro et sites statiques ultra-rapides",
+  "accentColor": "#f97316",
+  "emoji": "🚀",
+  "order": 1,
+  "draft": false,
+
+  "about": [
+    "Marco Astro est un <strong class=\"text-neutral-900\">Raton Laveur orange</strong> qui tient une fusée. C'est l'expert Astro de la Sqwad, obsédé par la performance et allergique à l'over-engineering.",
+    "Quand Marco build un site, <strong class=\"text-neutral-900\">chaque kilooctet compte</strong>. Zéro JavaScript inutile. Contenu first. Lighthouse 100 comme objectif minimum.",
+    "Il fait partie de la famille Marco — une lignée d'agents spécialisés dans les frameworks frontend. Marco Astro est l'évolution dédiée aux sites statiques ultra-rapides."
+  ],
+
+  "specialties": [
+    "Astro Framework",
+    "Sites Statiques",
+    "Content Collections",
+    "Islands Architecture",
+    "Tailwind CSS",
+    "SEO Technique",
+    "Performance Web",
+    "Image Optimization"
+  ],
+
+  "skills": [
+    {
+      "name": "astro-conventions",
+      "description": "Architecture de projet, composants, routing, Content Collections"
+    },
+    {
+      "name": "tailwind-patterns",
+      "description": "Configuration avancée, design system, composants UI"
+    },
+    {
+      "name": "clean-code",
+      "description": "Principes Uncle Bob, naming, fonctions, tests"
+    }
+  ],
+
+  "useCases": [
+    { "title": "Sites vitrine", "description": "Landing pages, sites corporate, portfolios" },
+    { "title": "Documentation", "description": "Sites de docs techniques, wikis, guides" },
+    { "title": "Blogs", "description": "Blogs statiques avec MDX, Content Collections" },
+    { "title": "Marketing", "description": "Pages produit, landing pages campagne" },
+    { "title": "Open Source", "description": "Sites de projets GitHub, changelogs" }
+  ],
+
+  "codeExamples": [
+    {
+      "title": "Créer un projet Astro",
+      "code": "# Dans Claude Code\n@marco-astro Initialise un nouveau projet Astro pour un site de documentation.\nStack : Astro + Tailwind + MDX. Structure clean avec Content Collections pour les docs.",
+      "lang": "bash"
+    },
+    {
+      "title": "Créer une page",
+      "code": "@marco-astro Crée une page \"À propos\" avec :\n- Hero section avec titre et description\n- Section équipe avec cards\n- Section timeline histoire de l'entreprise\n- CTA final",
+      "lang": "bash"
+    },
+    {
+      "title": "Optimiser les performances",
+      "code": "@marco-astro Audit de performance sur ma page d'accueil.\nIdentifie les problèmes et optimise pour atteindre Lighthouse 100.\nFocus : images, JS inutile, fonts, critical CSS.",
+      "lang": "bash"
+    },
+    {
+      "title": "Content Collections",
+      "code": "@marco-astro Crée une Content Collection \"blog\" avec :\n- Schema : title, excerpt, author, publishedAt, cover image, tags\n- Page liste avec pagination\n- Page article avec layout MDX\n- Génération sitemap automatique",
+      "lang": "bash"
+    },
+    {
+      "title": "Composant réutilisable",
+      "code": "@marco-astro Crée un composant Card réutilisable avec :\n- Props : title, description, image, href, variant (default/featured)\n- Hover effects\n- Responsive\n- Accessible (focus states)",
+      "lang": "bash"
+    }
+  ],
+
+  "does": [
+    "TypeScript strict pour les props",
+    "Composants < 100 lignes",
+    "Images via astro:assets",
+    "client:visible par défaut (pas client:load)",
+    "Meta tags SEO complets",
+    "Mobile-first responsive"
+  ],
+
+  "doesNot": [
+    "Inline styles",
+    "Composants > 150 lignes",
+    "Props any ou non typées",
+    "JavaScript côté client sans justification",
+    "Over-engineering",
+    "Dépendances npm inutiles"
+  ],
+
+  "mcpTools": [
+    "mcp__context7__resolve-library-id",
+    "mcp__context7__get-library-docs"
+  ],
+
+  "philosophy": {
+    "quote": "Ship less JavaScript. Content is king. Static by default, dynamic when necessary. Every byte matters. Simplicity scales better than complexity.",
+    "explanation": [
+      "Marco croit que la meilleure expérience utilisateur vient de la <strong class=\"text-neutral-900\">vitesse</strong>. Un site qui charge en 500ms convertit mieux qu'un site bourré de features qui charge en 3 secondes.",
+      "Son approche : commencer simple, ajouter de la complexité seulement quand c'est justifié. <strong class=\"text-neutral-900\">YAGNI</strong> (You Ain't Gonna Need It) est son mantra."
+    ]
+  }
+}

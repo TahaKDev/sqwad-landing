@@ -1,0 +1,35 @@
+---
+/**
+ * Agent Configuration Section
+ * Displays MCP tools and configuration
+ */
+import CodeBlock from '@/components/ui/CodeBlock.astro';
+
+interface Props {
+  mcpTools?: string[];
+}
+
+const { mcpTools = [] } = Astro.props;
+
+const hasTools = mcpTools.length > 0;
+const toolsYaml = hasTools
+  ? `tools:\n${mcpTools.map(tool => `  - ${tool}`).join('\n')}`
+  : '';
+---
+
+{hasTools && (
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        Configuration
+      </h2>
+      <p class="mt-2 text-neutral-600">Outils MCP utilisés :</p>
+      <div class="mt-6">
+        <CodeBlock code={toolsYaml} lang="yaml" />
+      </div>
+      <p class="mt-4 text-sm text-neutral-500">
+        Pour toujours avoir la documentation Astro et Tailwind à jour.
+      </p>
+    </div>
+  </section>
+)}

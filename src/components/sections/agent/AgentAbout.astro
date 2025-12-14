@@ -1,0 +1,25 @@
+---
+/**
+ * Agent About Section
+ * Displays "Who is this agent?" content
+ */
+interface Props {
+  title?: string;
+  paragraphs: string[];
+}
+
+const { title = 'Qui est cet agent ?', paragraphs } = Astro.props;
+---
+
+<section class="pt-8 pb-16 sm:pt-12 sm:pb-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      {title}
+    </h2>
+    <div class="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+      {paragraphs.map((paragraph) => (
+        <p set:html={paragraph} />
+      ))}
+    </div>
+  </div>
+</section>

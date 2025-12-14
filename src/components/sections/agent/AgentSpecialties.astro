@@ -1,0 +1,26 @@
+---
+/**
+ * Agent Specialties Section
+ * Displays list of specialties as badges
+ */
+import Badge from '@/components/ui/Badge.astro';
+
+interface Props {
+  specialties: string[];
+}
+
+const { specialties } = Astro.props;
+---
+
+<section class="border-t border-border py-16 sm:py-20 bg-neutral-50">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      Spécialités
+    </h2>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {specialties.map((specialty) => (
+        <Badge variant="default" size="md">{specialty}</Badge>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+/**
+ * Agent Code Examples Section
+ * Displays usage examples with code blocks
+ */
+import CodeBlock from '@/components/ui/CodeBlock.astro';
+import type { CodeExample } from '@/lib/types';
+
+interface Props {
+  examples: CodeExample[];
+}
+
+const { examples } = Astro.props;
+---
+
+<section class="border-t border-border py-16 sm:py-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      Exemples d'utilisation
+    </h2>
+    <div class="mt-10">
+      {examples.map((example, index) => (
+        <div class={index > 0 ? 'mt-16' : ''}>
+          <h3 class="mb-4 font-semibold text-neutral-700">
+            Exemple {index + 1} — {example.title}
+          </h3>
+          <CodeBlock code={example.code} lang={example.lang || 'bash'} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+/**
+ * Agent Do's and Don'ts Section
+ * Displays what the agent always/never does
+ */
+interface Props {
+  does: string[];
+  doesNot: string[];
+  agentName: string;
+}
+
+const { does, doesNot, agentName } = Astro.props;
+---
+
+<section class="border-t border-border py-16 sm:py-20 bg-neutral-50">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      Ce que {agentName} fait / ne fait pas
+    </h2>
+    <div class="mt-8 grid gap-8 sm:grid-cols-2">
+      <!-- Does -->
+      <div>
+        <h3 class="flex items-center gap-2 font-semibold text-accent-600">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          {agentName} fait TOUJOURS
+        </h3>
+        <ul class="mt-4 space-y-2">
+          {does.map((item) => (
+            <li class="flex items-start gap-2 text-sm text-neutral-600">
+              <svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Doesn't -->
+      <div>
+        <h3 class="flex items-center gap-2 font-semibold text-red-600">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          {agentName} ne fait JAMAIS
+        </h3>
+        <ul class="mt-4 space-y-2">
+          {doesNot.map((item) => (
+            <li class="flex items-start gap-2 text-sm text-neutral-600">
+              <svg class="h-4 w-4 mt-0.5 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

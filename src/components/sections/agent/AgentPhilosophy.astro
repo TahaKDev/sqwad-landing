@@ -1,0 +1,33 @@
+---
+/**
+ * Agent Philosophy Section
+ * Displays agent's philosophy quote and explanation
+ */
+import type { Philosophy } from '@/lib/types';
+
+interface Props {
+  philosophy: Philosophy;
+  accentColor?: string;
+}
+
+const { philosophy, accentColor = '#f97316' } = Astro.props;
+---
+
+<section class="border-t border-border py-16 sm:py-20 bg-gradient-to-b from-orange-50 to-white">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      Philosophie
+    </h2>
+    <blockquote
+      class="mt-8 border-l-4 pl-6 text-lg italic text-neutral-700"
+      style={`border-color: ${accentColor};`}
+    >
+      "{philosophy.quote}"
+    </blockquote>
+    <div class="mt-8 space-y-4 text-neutral-600 leading-relaxed">
+      {philosophy.explanation.map((paragraph) => (
+        <p set:html={paragraph} />
+      ))}
+    </div>
+  </div>
+</section>

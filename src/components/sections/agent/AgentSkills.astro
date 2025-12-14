@@ -1,0 +1,40 @@
+---
+/**
+ * Agent Skills Section
+ * Displays integrated skills with descriptions
+ */
+import type { Skill } from '@/lib/types';
+
+interface Props {
+  skills: Skill[];
+  accentColor?: string;
+}
+
+const { skills, accentColor = '#f97316' } = Astro.props;
+---
+
+<section class="border-t border-border py-16 sm:py-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">
+      Skills intégrés
+    </h2>
+    <div class="mt-8 space-y-4">
+      {skills.map((skill) => (
+        <div class="flex items-start gap-4 rounded-xl border border-border bg-surface p-4">
+          <div
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
+            style={`background-color: ${accentColor}20; color: ${accentColor};`}
+          >
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-neutral-900 font-mono text-sm">{skill.name}</h3>
+            <p class="mt-1 text-sm text-neutral-600">{skill.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
